@@ -7,7 +7,7 @@
 1. 의존성 설치
 
 ```bash
-pip install fastapi uvicorn sqlalchemy pydantic
+pip install -r requirements.txt
 # 사용하려는 DB 드라이버도 함께 설치합니다. (예: psycopg2-binary, PyMySQL 등)
 ```
 
@@ -20,3 +20,14 @@ uvicorn app.main:app --host 0.0.0.0 --port 80
 서버 실행 전 `DATABASE_URL` 환경 변수에 AWS RDS 연결 문자열을 설정합니다. 환경 변수가 없으면 로컬 SQLite 데이터베이스(`app.db`)를 사용합니다.
 
 실행 후 `http://localhost:8000/docs` 에서 Swagger UI를 통해 API를 확인할 수 있습니다.
+
+## 지도 페이지 사용
+
+`.env` 파일을 생성해 아래와 같이 네이버 API 키 정보를 설정합니다. 이 값은 실제 운영 시 AWS Secrets Manager 등에서 불러올 수 있습니다.
+
+```bash
+X-NCP-APIGW-API-KEY-ID=발급받은_client_id
+X-NCP-APIGW-API-KEY=발급받은_client_secret
+```
+
+`/map` 경로로 접속하면 `X-NCP-APIGW-API-KEY-ID` 값을 사용해 네이버 지도가 표시됩니다.
