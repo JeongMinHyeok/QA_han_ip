@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>맛집 지도</title>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initMap"></script>
+  <!-- `async` removed to ensure initMap is defined before this script runs -->
+  <script defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initMap"></script>
   <style>
     #map { width: 100%; height: 400px; }
     #results { list-style: none; padding: 0; }
