@@ -23,11 +23,10 @@ uvicorn app.main:app --host 0.0.0.0 --port 80
 
 ## 지도 페이지 사용
 
-`.env` 파일을 생성해 아래와 같이 네이버 API 키 정보를 설정합니다. 이 값은 실제 운영 시 AWS Secrets Manager 등에서 불러올 수 있습니다.
+`.env` 파일을 생성해 아래와 같이 구글 지도 API 키를 설정합니다. 이 값은 실제 운영 시 AWS Secrets Manager 등에서 불러올 수 있습니다.
 
 ```bash
-X-NCP-APIGW-API-KEY-ID=발급받은_client_id
-X-NCP-APIGW-API-KEY=발급받은_client_secret
+GOOGLE_API_KEY=발급받은_api_key
 ```
 
-`/map` 경로로 접속하면 `X-NCP-APIGW-API-KEY-ID` 값을 사용해 네이버 지도가 표시됩니다.
+`/map` 경로로 접속하면 `GOOGLE_API_KEY` 값을 사용해 구글 지도가 표시됩니다.
