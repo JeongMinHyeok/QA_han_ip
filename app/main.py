@@ -23,7 +23,7 @@ app.include_router(ranking.router)
 
 @app.get("/map", response_class=HTMLResponse)
 async def show_map(request: Request):
-    api_key = os.getenv("GOOGLE_API_KEY")
+    client_id = os.getenv("X-NCP-APIGW-API-KEY-ID")
     return templates.TemplateResponse(
-        "map.html", {"request": request, "google_api_key": api_key}
+        "map.html", {"request": request, "ncp_client_id": client_id}
     )
